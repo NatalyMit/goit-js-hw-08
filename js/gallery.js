@@ -64,17 +64,18 @@ const images = [
   },
 ];
 
-console.log(_);
-console.log(_.sum([4, 2, 8, 6]));
-console.log(_.sum([5, 10]));
+// console.log(_);
+// console.log(_.sum([4, 2, 8, 6]));
+// console.log(_.sum([5, 10]));
 
-console.log(_.shuffle([1, 2, 3, 4])); // [4, 1, 3, 2]
-console.log(_.shuffle([1, 2, 3, 4])); // [3, 2, 1, 4]
+// console.log(_.shuffle([1, 2, 3, 4])); // [4, 1, 3, 2]
+// console.log(_.shuffle([1, 2, 3, 4])); // [3, 2, 1, 4]
 
-const gallery = document.querySelector('.gallery');
-
-function createMarkup(arr) {
-  return arr
+const galleryEl = document.querySelector('.gallery');
+console.log(createMarkup(images));
+galleryEl.innerHTML = createMarkup(images);
+function createMarkup(images) {
+  return images
     .map(
       ({ preview, original, description }) => `
   <li class="gallery-item">
