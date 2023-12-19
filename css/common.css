@@ -1,0 +1,251 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  letter-spacing: 0.04em;
+}
+
+body {
+  margin: 16px;
+  font-family: 'Montserrat', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #fafafa;
+  color: #2e2f42;
+  line-height: 1.5;
+  font-style: normal;
+}
+ul {
+  text-decoration: none;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+h1 {
+  margin: 0;
+  padding: 0;
+}
+/* task-1 */
+.item {
+  max-width: 392px;
+  height: 296px;
+  list-style: none;
+  border-radius: 8px;
+  background: #f6f6fe;
+  padding: 16px;
+  margin-bottom: 40px;
+}
+.item h2 {
+  color: #2e2f42;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.33;
+  margin-bottom: 16px;
+}
+.item ul li {
+  color: #2e2f42;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  padding: 8px 16px;
+  list-style: none;
+  max-width: 360px;
+  height: 40px;
+  border-radius: 4px;
+  border: 1px solid #808080;
+  margin-bottom: 8px;
+}
+
+.item ul li:hover {
+  border-radius: 4px;
+  border: 1px solid #000;
+}
+.item ul li:active {
+  color: rgba(46, 47, 66, 1);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5; /* 150% */
+  letter-spacing: 0.64px;
+}
+/* task-2 */
+
+.gallery {
+  width: 1440px;
+  padding: 100px 156px;
+  display: flex;
+  gap: 48px 24px;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+  justify-content: center;
+  background: #fff;
+}
+.list-item {
+  display: flex;
+  flex-basis: calc((100% / 3) - 48px);
+}
+/* task-3 */
+
+#name-input {
+  width: 360px;
+  height: 40px;
+  padding: 8px 16px;
+  border-radius: 4px;
+  border: 1px solid #808080;
+}
+
+#name-input::placeholder {
+  color: #2e2f42;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+#name-output {
+  color: #2e2f42;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.33; /* 133.333% */
+  letter-spacing: 0.96px;
+}
+/* task-4 */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+}
+.login-form label {
+  display: flex;
+  flex-direction: column;
+  color: #2e2f42;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+.login-form label input {
+  max-width: 360px;
+  height: 40px;
+  border-radius: 4px;
+  border: 1px solid #808080;
+}
+.login-form label input:hover {
+  border: 1px solid #000;
+}
+.login-form button {
+  margin-top: 8px;
+  width: 86px;
+  height: 40px;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  background-color: #4e75ff;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+.login-form button:hover {
+  background-color: #6c8cff;
+}
+/* task-5 */
+.widget {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.widget p {
+  color: #2e2f42;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.color {
+  color: #2e2f42;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.change-color {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 148px;
+  width: 100%;
+  border-radius: 8px;
+  border: none;
+  background: #4e75ff;
+  padding: 8px 16px;
+  text-align: center;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+/* task - 6 */
+#controls {
+  display: flex;
+  flex-direction: row;
+  width: 500px;
+  gap: 16px;
+  border: none;
+  border-radius: 8px;
+  background-color: #f6f6fe;
+  padding: 32px;
+  margin: 16px 0 16px;
+}
+
+#controls input {
+  width: 150px;
+  height: 40px;
+  text-align: center;
+  border-radius: 8px;
+  border: 1px solid #808080;
+}
+
+#controls [data-create] {
+  border: none;
+  border-radius: 8px;
+  background-color: #4e75ff;
+  padding: 8px 16px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  text-align: center;
+}
+
+#controls [data-create]:hover {
+  background-color: #6c8cff;
+}
+
+#controls [data-destroy] {
+  border: none;
+  border-radius: 8px;
+  background-color: #ff4e4e;
+  padding: 8px 16px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  text-align: center;
+}
+
+#controls [data-destroy]:hover {
+  background-color: #ff7070;
+}
+
+#boxes {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  border: none;
+  border-radius: 8px;
+  background-color: #f6f6fe;
+  padding: 32px;
+  flex-wrap: wrap;
+}
