@@ -72,7 +72,8 @@ const images = [
 // console.log(_.shuffle([1, 2, 3, 4])); // [3, 2, 1, 4]
 
 const galleryEl = document.querySelector('.gallery');
-console.log(createMarkup(images));
+const galleryLink = document.querySelectorAll('.gallery-link');
+const imagesEl = document.querySelectorAll('img');
 galleryEl.innerHTML = createMarkup(images);
 function createMarkup(images) {
   return images
@@ -86,12 +87,11 @@ function createMarkup(images) {
     )
     .join('');
 }
-
-document.addEventListener('DOMContentLoaded', function () {
-  const imagesOr = document.querySelector('img');
-  for (let i = 0; i < imagesOr.lenght; i += 1) {
-    imagesOr[i].addEventListener('dragstart', function (e) {
-      e.preventDefault();
-    });
+console.log();
+galleryEl.addEventListener('click', e => {
+  for (let i = 0; i < imagesEl.lenght; i += 1) {
+    galleryLink[i].href = '';
   }
+  e.preventDefault();
+  console.log(e.target);
 });
