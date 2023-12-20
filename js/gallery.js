@@ -64,17 +64,24 @@ const images = [
   },
 ];
 
-// console.log(_);
-// console.log(_.sum([4, 2, 8, 6]));
-// console.log(_.sum([5, 10]));
-
-// console.log(_.shuffle([1, 2, 3, 4])); // [4, 1, 3, 2]
-// console.log(_.shuffle([1, 2, 3, 4])); // [3, 2, 1, 4]
-
 const galleryEl = document.querySelector('.gallery');
 const galleryLink = document.querySelectorAll('.gallery-link');
 const imagesEl = document.querySelectorAll('img');
 galleryEl.innerHTML = createMarkup(images);
+// import * as basicLightbox from 'basiclightbox';
+
+const instance = basicLightbox.create(`
+    <img src="assets/images/image.png" width="800" height="600">
+`);
+
+instance.show();
+galleryEl.addEventListener('click', e => {
+  for (let i = 0; i < imagesEl.lenght; i += 1) {
+    galleryLink[i].href = '';
+  }
+  e.preventDefault();
+  console.log(e.target);
+});
 function createMarkup(images) {
   return images
     .map(
@@ -87,11 +94,3 @@ function createMarkup(images) {
     )
     .join('');
 }
-console.log();
-galleryEl.addEventListener('click', e => {
-  for (let i = 0; i < imagesEl.lenght; i += 1) {
-    galleryLink[i].href = '';
-  }
-  e.preventDefault();
-  console.log(e.target);
-});
