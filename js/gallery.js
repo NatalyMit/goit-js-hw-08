@@ -68,20 +68,31 @@ const galleryEl = document.querySelector('.gallery');
 const galleryLink = document.querySelectorAll('.gallery-link');
 const imagesEl = document.querySelectorAll('img');
 galleryEl.innerHTML = createMarkup(images);
-// import * as basicLightbox from 'basiclightbox';
 
-const instance = basicLightbox.create(`
-    <img src="assets/images/image.png" width="800" height="600">
+galleryEl.addEventListener('click', handleGalleryClick);
+
+function handleGalleryClick(e) {
+  e.preventDefault();
+  if (e.currentTarget === e.target) {
+    return;
+  }
+  console.log(e.target);
+
+  const instance = basicLightbox.create(`
+	<div class="modal">
+  <img src="${e.target.dataset.source}" alt="${e.target.description}" width="800" height="600"/>
+  </div>
 `);
 
-instance.show();
-galleryEl.addEventListener('click', e => {
-  for (let i = 0; i < imagesEl.lenght; i += 1) {
-    galleryLink[i].href = '';
-  }
-  e.preventDefault();
-  console.log(e.target);
-});
+  instance.show();
+
+  galleryEl.addEventListener('keydown', e => {
+    if (e.code === 'Escape') {
+      instance.close();
+    }
+  });
+}
+
 function createMarkup(images) {
   return images
     .map(
