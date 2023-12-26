@@ -65,34 +65,42 @@ const images = [
 ];
 
 const galleryEl = document.querySelector('.gallery');
-const galleryLink = document.querySelectorAll('.gallery-link');
-const imagesEl = document.querySelectorAll('img');
+
 galleryEl.innerHTML = createMarkup(images);
 
 galleryEl.addEventListener('click', handleGalleryClick);
 
 function handleGalleryClick(e) {
   e.preventDefault();
-  if (e.currentTarget === e.target) {
+
+  if (e.target.nodeName !== 'IMG') {
     return;
   }
   console.log(e.target);
 
-  const instance = basicLightbox.create(`
+  const instance = basicLightbox.create(
+    `
 	<div class="modal">
   <img src="${e.target.dataset.source}" alt="${e.target.description}" width="800" height="600"/>
   </div>
-`);
+`,
+    {
+      onShow: () => {
+        document.addEventListener('keydown', closeModal);
+      },
+      onClose: () => {
+        document.removeEventListener('keydown', closeModal);
+      },
+    }
+  );
 
   instance.show();
-
-  galleryEl.addEventListener('keydown', e => {
+  function closeModal(e) {
     if (e.code === 'Escape') {
       instance.close();
     }
-  });
+  }
 }
-
 function createMarkup(images) {
   return images
     .map(
